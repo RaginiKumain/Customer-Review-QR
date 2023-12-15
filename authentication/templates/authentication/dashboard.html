@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #007BFF;
+            font-size: 36px;
+        }
+
+        p {
+            font-size: 18px;
+            margin: 20px 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Your Dashboard </h1>
+        
+        <p>
+            {{ request.user.username }} 
+            have successfully logged in! This is your dashboard.
+            <br><br>
+            <button><a href="{% url 'qrcodeapp:qr_gen' %}">+ QrCode</a></button><br><br>
+            <button><a href="{% url 'authentication:create_html_file' %}">+ Form</button><br><br>
+            <a href="{% url 'authentication:logout' %}">Logout</a>
+        </p>
+    </div>
+</body>
+</html>
